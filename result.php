@@ -3,13 +3,16 @@
 $badword = $_GET ["badword"];
 $censored =$_GET ["censored"];
 
-$result = var_dump($badword);
 
-$censored_res = str_replace($censored,'***',$censored);
-
-$censored_wrd = var_dump($censored_res)
+$censored_res = str_replace($censored,'***',$badword);
+$censored_wrd = strlen($censored_res);
 
 
+$badword_lgt = strlen($badword);
+$censored_lgt = strlen($censored_res);
+
+// $result = var_dump($badword);
+// $censored_dump = var_dump($censored_wrd);
 
 ?>
 
@@ -21,5 +24,15 @@ $censored_wrd = var_dump($censored_res)
     <title></title>
 </head>
 <body>
+    <h2>Paragrafo Stampato</h2>
+    <br>
+    <?= $badword ?>
+    <p>lunghezza paragrafo : <?=$badword_lgt?></p>
+    <br>
+    <h2>Paragrafo Censurato</h2>
+    <br>
+    <?= $censored_res ?>
+    <p>lunghezza paragrafo censurato : <?=$censored_lgt?></p>
+
 </body>
 </html>
